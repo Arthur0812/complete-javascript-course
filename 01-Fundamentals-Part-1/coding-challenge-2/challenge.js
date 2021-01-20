@@ -1,3 +1,4 @@
+"use strict";
 var Person = /** @class */ (function () {
     function Person(name, mass, height) {
         this.name = name;
@@ -5,15 +6,14 @@ var Person = /** @class */ (function () {
         this.height = height;
     }
     Person.prototype.calculateBMI = function () {
-        this.bmi = this.mass / Math.pow(this.height, 2);
+        this.bmi = Number((this.mass / Math.pow(this.height, 2)).toFixed(2));
+        return this.bmi;
     };
     return Person;
 }());
 var mark = new Person("Mark", 75, 1.8);
 var john = new Person("John", 85, 1.9);
-mark.calculateBMI();
-john.calculateBMI();
-if (mark.bmi > john.bmi) {
+if (mark.calculateBMI() > john.calculateBMI()) {
     console.log(mark.name + "'s BMI (" + mark.bmi + ") is greater than " + john.name + "'s BMI (" + john.bmi + ")");
 }
 else if (mark.bmi == john.bmi) {

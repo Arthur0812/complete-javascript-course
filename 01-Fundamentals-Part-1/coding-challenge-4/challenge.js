@@ -1,3 +1,4 @@
+"use strict";
 var TipCalculator = /** @class */ (function () {
     function TipCalculator(bills) {
         this.setBills(bills);
@@ -11,14 +12,26 @@ var TipCalculator = /** @class */ (function () {
     };
     TipCalculator.prototype.calculateTips = function () {
         var _this = this;
+        if (!this.bills) {
+            return;
+        }
         this.bills.forEach(function (bill) {
+            if (!_this.tips) {
+                return;
+            }
             var percentage = bill <= 300 && bill >= 50 ? 15 : 20;
             _this.tips.push(Number(((bill * percentage) / 100).toFixed(2)));
         });
     };
     TipCalculator.prototype.logTips = function () {
         var _this = this;
+        if (!this.bills) {
+            return;
+        }
         this.bills.forEach(function (bill, i) {
+            if (!_this.tips) {
+                return;
+            }
             var tip = _this.tips[i];
             console.log("Bill: " + bill + ", Tip: " + tip + ", Total: " + Number((bill + tip).toFixed(2)));
         });

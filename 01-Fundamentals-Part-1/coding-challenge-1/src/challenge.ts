@@ -20,3 +20,5 @@ if (markHigherBMI) {
 } else {
   console.log("Mark has an equal or smaller BMI than John.");
 }
+
+console.log("this is a test");

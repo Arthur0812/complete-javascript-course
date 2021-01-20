@@ -2,7 +2,7 @@ class Person {
   name: string;
   mass: number;
   height: number;
-  bmi: number;
+  bmi?: number;
 
   constructor(name: string, mass: number, height: number) {
     this.name = name;
@@ -10,18 +10,16 @@ class Person {
     this.height = height;
   }
 
-  calculateBMI() {
-    this.bmi = this.mass / this.height ** 2;
+  calculateBMI(): number {
+    this.bmi = Number((this.mass / this.height ** 2).toFixed(2));
+    return this.bmi;
   }
 }
 
 let mark = new Person("Mark", 75, 1.8);
 let john = new Person("John", 85, 1.9);
 
-mark.calculateBMI();
-john.calculateBMI();
-
-if (mark.bmi > john.bmi) {
+if (mark.calculateBMI() > john.calculateBMI()) {
   console.log(
     `${mark.name}'s BMI (${mark.bmi}) is greater than ${john.name}'s BMI (${john.bmi})`
   );

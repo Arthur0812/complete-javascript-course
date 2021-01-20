@@ -1,3 +1,4 @@
+"use strict";
 var heightMark = 1.88;
 var heightJohn = 1.76;
 var massMark = 95;
@@ -16,3 +17,4 @@ if (markHigherBMI) {
 else {
     console.log("Mark has an equal or smaller BMI than John.");
 }
+console.log("this is a test");

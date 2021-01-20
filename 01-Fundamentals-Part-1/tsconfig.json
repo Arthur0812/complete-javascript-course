@@ -2,6 +2,7 @@
     "include": ["src/**/*"],
     "exclude": ["node_modules", "**/*.spec.ts"],
     "compilerOptions": {
+        "strict": false,
         "preserveConstEnums": true,
         "outFile": "./script.js"
     }

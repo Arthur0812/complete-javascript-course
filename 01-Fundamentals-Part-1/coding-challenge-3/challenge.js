@@ -1,3 +1,4 @@
+"use strict";
 var Team = /** @class */ (function () {
     function Team(name, score) {
         this.name = name;
@@ -8,17 +9,16 @@ var Team = /** @class */ (function () {
             return prev + curr;
         });
         this.average = Number((sum / this.score.length).toFixed(2));
-        return this.average;
     };
     return Team;
 }());
 var dolphins = new Team("Dolphins", [97, 112, 101]);
 var koalas = new Team("Koalas", [109, 95, 106]);
 function determineWinner(first, second) {
-    var firstAverage = first.calculateAverage();
-    var secondAverage = second.calculateAverage();
+    var firstAverage = first.average;
+    var secondAverage = second.average;
     if (firstAverage < 100 && secondAverage < 100) {
-        return [undefined, false];
+        return [null, false];
     }
     if (firstAverage < 100) {
         return [second, false];
@@ -37,12 +37,14 @@ function determineWinner(first, second) {
     }
 }
 var _a = determineWinner(dolphins, koalas), winner = _a[0], isTie = _a[1];
-if (!winner) {
+if (winner == null) {
     console.log("No winner could be determined.");
 }
 else if (isTie) {
+    winner = winner;
     console.log("Tie! Both teams scored " + winner.average + " points on average!");
 }
 else {
+    winner = winner;
     console.log("And the winner is... " + winner.name + "! With an average score of " + winner.average);
 }
