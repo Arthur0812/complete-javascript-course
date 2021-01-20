@@ -1,0 +1,8 @@
+{
+"include": ["src/**/*"],
+"exclude": ["node_modules", "**/*.spec.ts"],
+"compilerOptions": {
+    "preserveConstEnums": true,
+    "outFile": "./challenge.js"
+}
+}
