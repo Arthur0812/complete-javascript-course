@@ -1,0 +1,9 @@
+{
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/*.spec.ts"],
+    "compilerOptions": {
+        "strict": true,
+        "preserveConstEnums": true,
+        "outFile": "./functions.js",
+    }
+}
