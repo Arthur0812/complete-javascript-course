@@ -22,13 +22,6 @@ var TipCalculator = /** @class */ (function () {
         });
         return this.totals;
     };
-    TipCalculator.prototype.calcAverage = function () {
-        var sum = this.totals.reduce(function (sum, n) {
-            return sum + n;
-        });
-        this.average = Number((sum / this.totals.length).toFixed(2));
-        return this.average;
-    };
     return TipCalculator;
 }());
 function calcTip(bill) {
@@ -38,8 +31,15 @@ function calcTip(bill) {
     }
     return Number(((bill * percentage) / 100).toFixed(2));
 }
+function calcAverage(arr) {
+    var sum = arr.reduce(function (prev, curr) {
+        return prev + curr;
+    });
+    return Number((sum / arr.length).toFixed(2));
+}
 var myTipCalculator = new TipCalculator(22, 295, 176, 440, 37, 105, 10, 1100, 86, 52);
 var totals = myTipCalculator.calcTotals();
 console.log(totals);
-var avg = myTipCalculator.calcAverage();
-console.log("average total:", avg);
+var avgTotal = calcAverage(totals);
+console.log("average total:", avgTotal);
+console.log("average tip:", calcAverage(myTipCalculator.tips));

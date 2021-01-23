@@ -2,7 +2,6 @@ class TipCalculator {
   bills: number[];
   tips: number[];
   totals: number[];
-  average?: number;
 
   constructor(...bills: number[]) {
     this.bills = bills;
@@ -24,14 +23,6 @@ class TipCalculator {
     });
     return this.totals;
   }
-
-  calcAverage(): number {
-    let sum = this.totals.reduce((sum, n) => {
-      return sum + n;
-    });
-    this.average = Number((sum / this.totals.length).toFixed(2));
-    return this.average;
-  }
 }
 
 function calcTip(bill: number): number {
@@ -40,6 +31,13 @@ function calcTip(bill: number): number {
     percentage = 15;
   }
   return Number(((bill * percentage) / 100).toFixed(2));
+}
+
+function calcAverage(arr: number[]): number {
+  let sum = arr.reduce((prev, curr) => {
+    return prev + curr;
+  });
+  return Number((sum / arr.length).toFixed(2));
 }
 
 const myTipCalculator = new TipCalculator(
@@ -59,6 +57,7 @@ let totals = myTipCalculator.calcTotals();
 
 console.log(totals);
 
-let avg = myTipCalculator.calcAverage();
+let avgTotal = calcAverage(totals);
 
-console.log("average total:", avg);
+console.log("average total:", avgTotal);
+console.log("average tip:", calcAverage(myTipCalculator.tips));

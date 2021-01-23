@@ -52,7 +52,7 @@ if (fullAges.constructor.prototype == Array.prototype) {
   console.log("fullAges does have the prototype of an array.");
 }
 
-// traditional loop
+// traditional for loop
 for (let i = 0; i < years.length; i++) {
   console.log("index:", i, "element:", years[i]);
 }
